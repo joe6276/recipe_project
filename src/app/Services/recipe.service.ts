@@ -7,7 +7,7 @@ import { ShoppingService } from "./shopping.service";
 export class RecipeService{
     constructor(private shoppingService:ShoppingService) { }
     private recipes:Recipe[]=[
-        new Recipe('Test Recipe',"Description of test Recipe",
+        new Recipe('Burgersas',"Description of test Recipe",
          "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/12/malpua-recipe.jpg"
         ,[new Ingredients('meat',2),
          new Ingredients('salt',2)
@@ -20,6 +20,9 @@ export class RecipeService{
         new Ingredients('salt',2)
         ])
     ];
+        getRecip(id:number){
+            return this.recipes[id]
+        }
 
     getRecipe(){
         return this.recipes.slice()

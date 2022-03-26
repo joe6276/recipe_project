@@ -2,7 +2,11 @@
 <div class="container">
     <div class="row">
         <div  *ngIf="recipe" class="col-xs-4">
-            <a  (click)="showRecipe()" href="#" class="list-group-item  m-5 clearfix" >
+            <a  
+            
+            [routerLink]="[index]"
+            routerLinkActive="active"
+            style="cursor: pointer;" class="list-group-item  m-5 clearfix" >
     
                 <div class="pull-left">
                     <h4 class="list-group-item-heading">{{recipe.recipename}}</h4>
