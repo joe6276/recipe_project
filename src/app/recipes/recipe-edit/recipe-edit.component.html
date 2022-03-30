@@ -3,8 +3,8 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
     <div class="row">
         <div   class="col-xs-12">
-            <button [disabled]="! recipeForm.valid" type="submit" class="btn btn-success">Save</button>
-            <button   style="margin-left:5px" type="button" class="btn btn-danger">Cancel</button>
+            <button [disabled]="! recipeForm.valid" type="submit" class="btn btn-success"> {{!editor? 'Save' :'Update'}}</button>
+            <button (click)="onCancel()"  style="margin-left:5px" type="button" class="btn btn-danger">Cancel</button>
         </div>
     </div>
 
@@ -23,14 +23,14 @@
         <div class="col-xs-12">
             <div class="form-group">
                 <label for="name"> ImageURl </label>
-                <input class="form-control" formControlName="imagepath" id="imagepath" type="text">
+                <input class="form-control"  #img formControlName="imagepath" id="imagepath" type="text">
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-xs-12">
-            <img src="" class="img-responsive">
+            <img [src]="img.value"  style="max-height: 150px" class="img-responsive">
         </div>
     </div>
 
@@ -57,14 +57,14 @@
                 <input type="number"  formControlName="amount" class="form-control">
             </div>
             <div class="col-xs-2">
-                <button class=" btn btn-danger"> X </button>
+                <button  type='button' (click)="cancelIngredient(i)" class=" btn btn-danger"> X </button>
              </div>
              
          </div>
          <hr>
          <div class="row">
              <div class="col-xs-12">
-                 <button (click)="addIngredient()" class="btn btn-success"> Add Ingredient</button>
+                 <button type="button" (click)="addIngredient()" class="btn btn-success"> Add Ingredient</button>
              </div>
          </div>
         </div>
