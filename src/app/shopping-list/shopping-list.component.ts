@@ -23,6 +23,9 @@ OnIngedientadd(ingredient:Ingredients){
         this.ingredients=ingrediet
       })
   }
+  onEditItem(index:number){
+    this.shoppingServie.IdChanged.next(index)
+  }
   ngOnDestroy(): void {
       this.sub.unsubscribe()
   }
